@@ -1,0 +1,46 @@
+# Project: trab_01_dev
+# Makefile created by Dev-C++ 5.11
+
+CPP      = g++.exe
+CC       = gcc.exe
+WINDRES  = windres.exe
+OBJ      = main.o arithmetic_compressor.o file_buffer.o memory_buffer.o model.o tree_list.o tree_map.o
+LINKOBJ  = main.o arithmetic_compressor.o file_buffer.o memory_buffer.o model.o tree_list.o tree_map.o
+LIBS     = -L"C:/Dev-Cpp/MinGW64/lib" -L"C:/Dev-Cpp/MinGW64/x86_64-w64-mingw32/lib" -L"C:/Dev-Cpp/lib" -static-libgcc
+INCS     = -I"C:/Dev-Cpp/MinGW64/include" -I"C:/Dev-Cpp/MinGW64/x86_64-w64-mingw32/include" -I"C:/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include"
+CXXINCS  = -I"C:/Dev-Cpp/MinGW64/include" -I"C:/Dev-Cpp/MinGW64/x86_64-w64-mingw32/include" -I"C:/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include" -I"C:/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include/c++" -I"C:/Dev-Cpp/include"
+BIN      = trab_01_dev.exe
+CXXFLAGS = $(CXXINCS) -std=c++11
+CFLAGS   = $(INCS) -std=c++11
+RM       = rm.exe -f
+
+.PHONY: all all-before all-after clean clean-custom
+
+all: all-before $(BIN) all-after
+
+clean: clean-custom
+	${RM} $(OBJ) $(BIN)
+
+$(BIN): $(OBJ)
+	$(CPP) $(LINKOBJ) -o $(BIN) $(LIBS)
+
+main.o: main.cpp
+	$(CPP) -c main.cpp -o main.o $(CXXFLAGS)
+
+arithmetic_compressor.o: arithmetic_compressor.cpp
+	$(CPP) -c arithmetic_compressor.cpp -o arithmetic_compressor.o $(CXXFLAGS)
+
+file_buffer.o: file_buffer.cpp
+	$(CPP) -c file_buffer.cpp -o file_buffer.o $(CXXFLAGS)
+
+memory_buffer.o: memory_buffer.cpp
+	$(CPP) -c memory_buffer.cpp -o memory_buffer.o $(CXXFLAGS)
+
+model.o: model.cpp
+	$(CPP) -c model.cpp -o model.o $(CXXFLAGS)
+
+tree_list.o: tree_list.cpp
+	$(CPP) -c tree_list.cpp -o tree_list.o $(CXXFLAGS)
+
+tree_map.o: tree_map.cpp
+	$(CPP) -c tree_map.cpp -o tree_map.o $(CXXFLAGS)
